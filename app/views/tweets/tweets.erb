@@ -6,11 +6,12 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
- <h1>Welcome, <%=@user.username%></h1>
+    <h1>Welcome, <%=@user.username%></h1>
 
- <h4>Tweets:</h4>
- <%Tweet.all.each do |tweet|%>
-   <%=tweet.content%><br>
- <%end%>
+    <h4>Tweets:</h4>
+    <%Tweet.all.each do |tweet|%>
+      <%=tweet.content%><br>
+    <%end%>
+    <a href="/logout">Log Out</a>
   </body>
 </html>

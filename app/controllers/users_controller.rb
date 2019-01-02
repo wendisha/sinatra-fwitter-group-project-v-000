@@ -2,7 +2,6 @@ require "pry"
 class UsersController < ApplicationController
   
   get '/signup' do
-    
     if logged_in?
       redirect "/tweets" 
     else
@@ -37,6 +36,15 @@ class UsersController < ApplicationController
       redirect to "/tweets"
     else 
       redirect to "/login"
+    end
+  end
+  
+  get '/logout' do
+    if logged_in?
+      session.clear
+      redirect '/login'
+    else 
+      redirect '/login'
     end
   end
 end
