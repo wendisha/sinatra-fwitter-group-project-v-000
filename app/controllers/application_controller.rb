@@ -10,16 +10,16 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :layout
+    erb :index
   end
   
   helpers do 
     def logged_in?
-      !!session[:user_id]
+      !!current_user
     end
     
     def current_user
-      User.find(session[:user_id])
+      User.find_by(id: session[:user_id]) if session[:user_id]
     end 
   end
 
