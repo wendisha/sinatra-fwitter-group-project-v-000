@@ -4,7 +4,11 @@ class User < ActiveRecord::Base
   has_secure_password
   
       
-    def slug 
-      username.gsub(" ", "-").downcase
-    end
+  def slug 
+    username.gsub(" ", "-").downcase
+  end
+  
+  def find_by_slug
+    self.all.find{|username| username.slug == slug}
+  end
 end
