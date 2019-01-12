@@ -57,7 +57,6 @@ class TweetsController < ApplicationController
     else 
       redirect "/tweets"
     end
-    
   end 
   
   delete '/tweets/:id/delete' do 
